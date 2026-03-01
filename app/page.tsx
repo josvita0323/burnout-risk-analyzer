@@ -14,12 +14,12 @@ export default function Home() {
   const { score, risk } = calculateBurnoutScore(hours, stressLevels);
 
   return (
-    <main className="min-h-screen bg-gray-100 p-10 flex flex-col items-center gap-6">
+    <div className="min-h-screen bg-gray-100 items-center p-10 flex flex-col  gap-6  text-black">
       <Card>
         <h1 className="text-2xl font-bold mb-4">Burnout Dashboard</h1>
         <p className="text-lg">Risk Score: {score.toFixed(2)}</p>
         <RiskBadge risk={risk} />
       </Card>
-    </main>
+    </div>
   );
 }

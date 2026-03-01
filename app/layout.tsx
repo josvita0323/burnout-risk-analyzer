@@ -1,26 +1,17 @@
-import './globals.css';
-import Link from 'next/link';
+import "./globals.css";
+import Navbar from "../components/Navbar";
 
 export default function RootLayout({
-children,
+  children,
 }: {
-children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-return (
-<html lang="en">
-<body className="bg-slate-50 min-h-screen text-slate-800 font-sans">
-<nav className="bg-white shadow-sm p-4 mb-8">
-<div className="max-w-4xl mx-auto flex gap-6 font-semibold">
-<Link href="/" className="hover:text-blue-600 transition-colors">Dashboard</Link>
-<Link href="/log-work" className="hover:text-blue-600 transition-colors">Log Work</Link>
-<Link href="/log-stress" className="hover:text-blue-600 transition-colors">Log Stress</Link>
-<Link href="/insights" className="hover:text-blue-600 transition-colors">Insights</Link>
-</div>
-</nav>
-<main className="max-w-4xl mx-auto p-4">
-{children}
-</main>
-</body>
-</html>
-);
+  return (
+    <html lang="en">
+      <body className="min-h-screen bg-gray-100 text-slate-800">
+        <Navbar />
+        <main className="w-full min-h-screen px-6 py-8">{children}</main>
+      </body>
+    </html>
+  );
 }
