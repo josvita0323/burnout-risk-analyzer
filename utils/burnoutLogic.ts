@@ -18,8 +18,12 @@ export const calculateBurnoutScore = (
 
   const score = avgHours * 0.6 + stressScore * 10 * 0.4;
 
-  if (score < 40) return { score, risk: "Low" };
-  if (score < 70) return { score, risk: "Moderate" };
+  // the combination of weights above produces a maximum possible score
+  // around 26.4 (24h average + "high" stress). the old thresholds (40/70)
+  // were therefore never crossed, meaning the app always showed "Low" risk.
+  // lower the cut‑offs so they line up with the computed range.
+  if (score < 15) return { score, risk: "Low" };
+  if (score < 25) return { score, risk: "Moderate" };
   return { score, risk: "High" };
 };
 
